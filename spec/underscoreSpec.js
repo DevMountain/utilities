@@ -331,7 +331,10 @@ describe("extend", function() {
 });
 
 describe("defaults", function() {
-  var result, options;
+  var options, defaulted;
+
+/*
+  var results, options;
 
   beforeEach(function() {
     options = {zero: 0, one: 1, empty: "", nan: NaN, string: "string"};
@@ -351,6 +354,25 @@ describe("defaults", function() {
 
   it("if two identical values are passed in, the first one wins", function() {
     expect(options.word).to.equal("word");
+  });
+*/
+  options = {zero: 0, one: 1, empty: "", nan: NaN, string: "string"};
+  defaulted = _.defaults(options, {zero: 1, one: 10, twenty: 20}, {empty: "full"}, {nan: "nan"}, {word: "word"}, {word: "dog"});
+
+
+  it("should apply a value when one doesn't already exist on the target", function() {
+    expect(defaulted.zero).to.equal(0);
+    expect(defaulted.one).to.equal(1);
+    expect(defaulted.twenty).to.equal(20);
+  });
+
+  it("should not apply a value if one already exist on the target", function() {
+    expect(defaulted.empty).to.equal("");
+    expect(isNaN(defaulted.nan)).to.equal(true);
+  });
+
+  it("if two identical values are passed in, the first one wins", function() {
+    expect(defaulted.word).to.equal("word");
   });
 });
 
