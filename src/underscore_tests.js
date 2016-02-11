@@ -33,11 +33,11 @@ var _ = { };
   _.indexOf = function(array, target){
   };
 
-  // Return all elements of an array that pass a truth test.
+  // Return all elements of an array that pass a truth test ('iterator' function argument)
   _.filter = function(collection, iterator) {
   };
 
-  // Return all elements of an array that don't pass a truth test.
+  // Return all elements of an array that don't pass a truth test (the 'iterator' function argument)
   _.reject = function(collection, iterator) {
   };
 
